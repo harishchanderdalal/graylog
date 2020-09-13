@@ -17,6 +17,8 @@ A common approach to this problem is to setup a centralized logging solution so 
   - Graylog is able to accept and parse RFC 5424 and RFC 3164 compliant syslog messages out of the box
   - Messages forwarded by rsyslog or syslog-ng are usually parsed flawlessly
  
+See [GrayLogInstall Centos.md](https://github.com/harishchanderdalal/graylog/blob/master/grayloginstallation.md)
+
 ### Installation
  - Java
  - Mongo
@@ -95,4 +97,24 @@ sudo rpm -Uvh https://packages.graylog2.org/repo/packages/graylog-3.3-repository
 Install Graylog Server:-
 ```
 sudo yum install graylog-server
+```
+Create password_secret:- 
+See [Url Genrate Password](https://8-p.info/pwgen/?)
+- Password must be 16 CHAR
+- No Capital Word
+
+Create root_password_sha2:-
+```
+echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
+```
+Update both paassword in 
+```
+vim /etc/graylog/server/server.conf
+```
+Install and start the service :-
+```
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable graylog-server.service
+$ sudo systemctl start graylog-server.service
+$ sudo systemctl --type=service --state=active | grep graylog
 ```
