@@ -70,6 +70,14 @@ enabled=1
 autorefresh=1
 type=rpm-md
 ```
+Update the cluster name in ElasticSearch:-
+```
+vim /etc/elasticsearch/elasticsearch.yml
+```
+set the cluster name:- 
+```
+cluster.name: YOURNAME
+```
 Install and start the service :-
 ```
 $ sudo yum install elasticsearch-oss
