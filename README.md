@@ -86,3 +86,13 @@ $ sudo systemctl enable elasticsearch.service
 $ sudo systemctl restart elasticsearch.service
 $ sudo systemctl --type=service --state=active | grep elasticsearch
 ```
+
+## GrayLog
+Install Graylog Repo:-
+```
+sudo rpm -Uvh https://packages.graylog2.org/repo/packages/graylog-3.3-repository_latest.rpm
+```
+Install Graylog Server:-
+```
+sudo yum install graylog-server
+```
