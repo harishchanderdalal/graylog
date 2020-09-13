@@ -118,3 +118,14 @@ $ sudo systemctl enable graylog-server.service
 $ sudo systemctl start graylog-server.service
 $ sudo systemctl --type=service --state=active | grep graylog
 ```
+
+## Publish Graylog
+Uncomment and update 127.0.0.1 to 0.0.0.0
+```
+http_bind_address = 127.0.0.1:9000
+http_bind_address = 0.0.0.0:9000
+```
+
+```
+$ sudo systemctl restart graylog-server.service
+```
